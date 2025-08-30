@@ -156,13 +156,15 @@
     </div>
 
     <!-- Header -->
-    <header
-        class="py-5 fixed top-0 left-0 right-0 bg-white/98 backdrop-blur transition-all duration-300 ease-in-out z-[1000] shadow-sm">
-        <div class="max-w-[1200px] mx-auto px-5 flex justify-between items-center">
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-[1200px] mx-auto px-5 flex justify-between items-center py-4">
+            <!-- Logo -->
             <div class="logo text-2xl font-bold text-primary flex items-center gap-2">
                 <i class="fas fa-code text-primary"></i>
                 <span id="username-header">SKR</span>
             </div>
+
+            <!-- Desktop Navigation -->
             <nav class="hidden md:block">
                 <ul class="flex list-none gap-8">
                     <li><a href="#about"
@@ -183,25 +185,70 @@
                     </li>
                 </ul>
             </nav>
+
+            <!-- Desktop Contact Button -->
             <a id="contact-button" href="#contact"
-                class="bg-primary text-white border-none py-2.5 px-5 rounded-lg font-medium cursor-pointer transition-all duration-300 ease-in-out flex items-center gap-2 shadow hover:bg-primary-dark hover:-translate-y-0.5 hover:shadow-md">
+                class="hidden md:flex bg-primary text-white border-none py-2.5 px-5 rounded-lg font-medium cursor-pointer transition-all duration-300 ease-in-out items-center gap-2 shadow hover:bg-primary-dark hover:-translate-y-0.5 hover:shadow-md">
                 <i class="fas fa-phone text-white"></i>
                 Contact
             </a>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobile-menu-btn"
+                class="md:hidden flex flex-col justify-center items-center w-10 h-10 space-y-1 focus:outline-none bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors duration-200">
+                <span class="hamburger-line block w-5 h-0.5 bg-dark transition-all duration-300 ease-in-out"></span>
+                <span class="hamburger-line block w-5 h-0.5 bg-dark transition-all duration-300 ease-in-out"></span>
+                <span class="hamburger-line block w-5 h-0.5 bg-dark transition-all duration-300 ease-in-out"></span>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-200 shadow-lg hidden">
+            <nav class="px-5 py-4">
+                <ul class="flex flex-col space-y-4">
+                    <li><a href="#about"
+                            class="mobile-nav-link block text-dark font-medium py-2 px-3 rounded-lg transition-all duration-300 ease-in-out hover:bg-gray-100 hover:text-primary">
+                            <i class="fas fa-user w-5 mr-3 text-primary"></i>About</a>
+                    </li>
+                    <li><a href="#skills"
+                            class="mobile-nav-link block text-dark font-medium py-2 px-3 rounded-lg transition-all duration-300 ease-in-out hover:bg-gray-100 hover:text-primary">
+                            <i class="fas fa-cog w-5 mr-3 text-primary"></i>Skills</a>
+                    </li>
+                    <li><a href="#projects"
+                            class="mobile-nav-link block text-dark font-medium py-2 px-3 rounded-lg transition-all duration-300 ease-in-out hover:bg-gray-100 hover:text-primary">
+                            <i class="fas fa-folder w-5 mr-3 text-primary"></i>Projects</a>
+                    </li>
+                    <li><a href="#experience"
+                            class="mobile-nav-link block text-dark font-medium py-2 px-3 rounded-lg transition-all duration-300 ease-in-out hover:bg-gray-100 hover:text-primary">
+                            <i class="fas fa-briefcase w-5 mr-3 text-primary"></i>Experience</a>
+                    </li>
+                    <li><a href="#achievements"
+                            class="mobile-nav-link block text-dark font-medium py-2 px-3 rounded-lg transition-all duration-300 ease-in-out hover:bg-gray-100 hover:text-primary">
+                            <i class="fas fa-trophy w-5 mr-3 text-primary"></i>Achievements</a>
+                    </li>
+                    <li class="pt-2 border-t border-gray-200 mt-4">
+                        <a href="#contact"
+                            class="mobile-nav-link flex items-center gap-3 bg-primary text-white py-3 px-4 rounded-lg font-medium transition-all duration-300 ease-in-out hover:bg-primary-dark shadow">
+                            <i class="fas fa-phone text-white"></i>
+                            Contact Me
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <main class="mt-20 py-16">
+    <main class="mt-20 md:mt-0 py-16 md:py-5">
         <div class="max-w-[1200px] mx-auto px-5">
             <!-- Hero Section -->
-            <section class="hero grid grid-cols-1 md:grid-cols-2 gap-16 items-center min-h-[80vh]">
+            <section class="hero grid grid-cols-1 md:grid-cols-2 gap-16 items-center min-h-[80vh] md:min-h-[100vh]">
                 <div class="hero-content">
                     <h1 class="text-4xl md:text-5xl lg:text-6xl text-dark leading-tight mb-5 font-bold">
                         Hello, I'm <span class="name text-primary relative inline-block"
                             id="username-hero">Subham</span><br>
                         <span id="profession">UI/UX Designer</span>
                     </h1>
-                    <p class="subtitle text-xl text-gray mb-8 leading-relaxed max-w-[80%] mx-auto md:mx-0"
+                    <p class="subtitle text-xl text-gray mb-8 leading-relaxed max-w-[80%] md:mx-0"
                         id="hero-description">
                         I craft intuitive digital experiences with a focus on clean aesthetics and seamless
                         functionality.
@@ -231,24 +278,24 @@
                         </a>
                     </div>
 
-                    <div class="badges-container flex justify-center flex-wrap gap-4 mt-8 md:block">
+                    <div class="badges-container flex flex-row justify-center md:justify-start gap-4 mt-8 md:relative md:w-[60vw]">
                         <div id="experience-badge"
-                            class="absolute bottom-8 left-[350px] md:static bg-white p-5 rounded-xl shadow-lg z-[3] flex items-center gap-2.5 -rotate-6 transition-all duration-300 ease-in-out hover:rotate-0 hover:scale-105 md:inline-block md:mr-4">
-                            <div class="experience-number text-3xl font-bold text-primary leading-none"
+                            class="md:max-w-[400px]  md:static bg-white p-5 rounded-xl shadow-lg z-[3] flex flex-col items-start gap-2.5 -rotate-6 transition-all duration-300 max-h-[150px] ease-in-out hover:rotate-0 hover:scale-105 md:inline-block md:mr-4">
+                            <div class="experience-number text-3xl font-bold text-primary leading-none line-clamp-5"
                                 id="experience-years">10</div>
-                            <div class="experience-text text-sm text-gray uppercase tracking-[1px] leading-snug">
+                            <div class="experience-text text-sm text-gray uppercase tracking-[1px] leading-snug line-clamp-5">
                                 Years<br>
                                 Experience
                             </div>
                         </div>
 
                         <div id="certification-badge"
-                            class="absolute top-8 right-[-300px] md:static bg-white p-5 rounded-xl shadow-lg text-center z-[3] rotate-6 transition-all duration-300 ease-in-out hover:rotate-0 hover:scale-105 md:inline-block">
+                            class=" md:max-w-[400px] right-[-300px] md:static bg-white p-5 rounded-xl shadow-lg text-center z-[3] rotate-6 transition-all duration-300 ease-in-out hover:rotate-0 hover:scale-105 md:inline-block">
                             <div
                                 class="cert-icon w-12 h-12 bg-primary rounded-full mx-auto mb-2.5 flex items-center justify-center shadow">
                                 <i class="fas fa-certificate text-white"></i>
                             </div>
-                            <div class="cert-text text-sm text-dark font-semibold leading-relaxed"
+                            <div class="cert-text text-sm text-dark font-semibold leading-relaxed line-clamp-5"
                                 id="certification-text">
                                 IDF Certified<br>
                                 UI/UX Designer
@@ -257,7 +304,7 @@
                     </div>
                 </div>
 
-                <div class="hero-visual relative flex justify-center items-center h-[500px] mt-10 md:mt-0">
+                <div class="hero-visual relative flex justify-center items-center h-[500px] ">
                     <div
                         class="paint-splash absolute w-[400px] h-[400px] md:w-[300px] md:h-[300px] bg-gradient-to-r from-primary via-primary-light to-secondary rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] z-[1] filter blur-[1px] opacity-80">
                     </div>
@@ -376,7 +423,7 @@
                 class="absolute -bottom-20 -right-20 w-72 h-72 bg-secondary/5 rounded-full filter blur-3xl animate-pulse-slow animation-delay-2000">
             </div>
 
-            <div class="container max-w-[1200px] mx-auto px-5 relative z-10">
+            <div class="container max-w-[1500px] mx-auto px-5 relative z-10">
                 <h2
                     class="section-title text-5xl text-center mb-4 text-dark font-bold transform transition-all duration-500 hover:scale-105">
                     My <span class="text-primary relative inline-block">
@@ -388,7 +435,7 @@
                 </p>
 
                 <div id="projects-grid"
-                    class="projects-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+                    class="projects-grid flex flex-row flex-wrap items-center justify-center  gap-8 mt-12">
                     <!-- Projects will be injected here by JavaScript -->
                 </div>
             </div>
@@ -451,12 +498,12 @@
                     </p>
                 </div>
 
-                <div class="contact-container grid grid-cols-1  gap-12 mt-12">
+                <div class="contact-container mt-12 w-full flex justify-center items-center">
                     <!-- Contact Info -->
-                    <div class="contact-info space-y-6">
+                    <div class="contact-info space-y-6 w-full max-w-[600px]">
                         <!-- Contact Item 1 -->
                         <div id="contact-location-container"
-                            class="contact-item group flex gap-5 items-start p-5 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-white hover:border-primary/20">
+                            class="w-full contact-item group flex gap-5 items-start p-5 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-white hover:border-primary/20">
                             <div
                                 class="contact-icon w-14 h-14 bg-primary rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:bg-primary-dark group-hover:scale-110 transition-all duration-300">
                                 <i class="fas fa-map-marker-alt text-white text-xl"></i>
@@ -518,34 +565,14 @@
                                     5PM</p>
                             </div>
                         </div>
-
-                        <!-- Social Links -->
-                        <div class="social-links flex gap-4 mt-8 justify-center lg:justify-start">
-                            <a href="#"
-                                class="w-12 h-12 bg-white/80 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-sm hover:shadow-md hover:-translate-y-1 hover:bg-primary hover:text-white transition-all duration-300 border border-white">
-                                <i class="fa-solid fa-code text-gray-600 hover:text-white text-xl"></i>
-                            </a>
-                            <a href="#"
-                                class="w-12 h-12 bg-white/80 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-sm hover:shadow-md hover:-translate-y-1 hover:bg-primary hover:text-white transition-all duration-300 border border-white">
-                                <i class="fab fa-linkedin-in text-gray-600 hover:text-white text-xl"></i>
-                            </a>
-                            <a href="#"
-                                class="w-12 h-12 bg-white/80 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-sm hover:shadow-md hover:-translate-y-1 hover:bg-primary hover:text-white transition-all duration-300 border border-white">
-                                <i class="fab fa-github text-gray-600 hover:text-white text-xl"></i>
-                            </a>
-                            <a href="#"
-                                class="w-12 h-12 bg-white/80 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-sm hover:shadow-md hover:-translate-y-1 hover:bg-primary hover:text-white transition-all duration-300 border border-white">
-                                <i class="fab fa-instagram text-gray-600 hover:text-white text-xl"></i>
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-dark text-white py-12">
-        <div class="max-w-[1200px]  px-5">
+    <footer class="bg-dark text-white py-12 w-full flex justify-around items-center">
+        <div class="max-w-[1200px] w-full px-5">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="logo text-2xl font-bold text-primary flex items-center gap-2 mb-6 md:mb-0">
                     <i class="fas fa-code text-primary"></i>
@@ -599,8 +626,8 @@
         //     profileImage: "https://randomuser.me/api/portraits/men/32.jpg",
         //     aboutImage: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2",
         //     experienceYears: "4+",
-        //     certificationText: "IDF Certified\nUI/UX Designer",
-        //     resumeLink: "https://example.com/resume.pdf",
+        //     certificationText: "IDF Certified\nUI/UX Designer Innovative Full-Stack Developer proficient in React, Node.js, and scalable application development.Innovative Full-Stack Developer proficient in React, Node.js, and scalable application development.Innovative Full-Stack Developer proficient in React, Node.js, and scalable application development.Innovative Full-Stack Developer proficient in React, Node.js, and scalable application development.",
+        //     resumeLink: "https://res.cloudinary.com/dpazarvil/raw/upload/v1751092395/assets/bzy5ra0fcyf7zwgv7sx0",
 
         //     // About Section
         //     aboutTitle: "Who I Am",
@@ -950,7 +977,7 @@
                     }
 
                     const projectElement = document.createElement("div");
-                    projectElement.className = "project-card group bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] hover:-translate-y-2 hover:shadow-2xl hover:border-primary/20 border border-transparent";
+                    projectElement.className = "project-card group bg-white rounded-xl md:max-w-[350px] lg:max-w-[400px] overflow-hidden shadow-lg transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] hover:-translate-y-2 hover:shadow-2xl hover:border-primary/20 border border-transparent";
                     projectElement.innerHTML = `
                 <div class="project-image relative h-[250px] overflow-hidden">
                     <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -1200,6 +1227,83 @@
 
             // Then run on scroll
             window.addEventListener('scroll', animateOnScroll);
+        });
+
+
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerLines = document.querySelectorAll('.hamburger-line');
+        let isMenuOpen = false;
+
+        const resumeButton = document.getElementById('resume-link');
+        resumeButton.addEventListener('click', async (e) => {
+            e.preventDefault(); // prevent default link behavior
+
+            const url = userData.resumeLink;
+
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error("Failed to fetch PDF");
+
+                const blob = await response.blob();
+                const link = document.createElement("a");
+                link.href = URL.createObjectURL(blob);
+                link.download = "Resume.pdf"; // name of downloaded file
+                document.body.appendChild(link);
+                link.click();
+                link.remove();
+            } catch (error) {
+                console.error("Error downloading resume:", error);
+                alert("Failed to download resume. Try again later.");
+            }
+        });
+
+        function toggleMobileMenu() {
+            isMenuOpen = !isMenuOpen;
+
+            if (isMenuOpen) {
+                // Show menu
+                mobileMenu.classList.remove('hidden');
+
+                // Animate hamburger to X
+                hamburgerLines[0].classList.add('rotate-45', 'translate-y-1.5');
+                hamburgerLines[1].classList.add('opacity-0');
+                hamburgerLines[2].classList.add('-rotate-45', '-translate-y-1.5');
+            } else {
+                // Hide menu
+                mobileMenu.classList.add('hidden');
+
+                // Animate X back to hamburger
+                hamburgerLines[0].classList.remove('rotate-45', 'translate-y-1.5');
+                hamburgerLines[1].classList.remove('opacity-0');
+                hamburgerLines[2].classList.remove('-rotate-45', '-translate-y-1.5');
+            }
+        }
+
+        // Event listeners
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+        // Close menu when clicking on mobile nav links
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (isMenuOpen) {
+                    toggleMobileMenu();
+                }
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (isMenuOpen && !mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+                toggleMobileMenu();
+            }
+        });
+
+        // Close menu on window resize to desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768 && isMenuOpen) {
+                toggleMobileMenu();
+            }
         });
     </script>
 </body>
